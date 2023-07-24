@@ -1,21 +1,39 @@
 import { useState } from 'react'
-
-
-const Statistics = ({good,neutral,bad}) => {
-
+const StatisticLine = ({good,neutral,bad}) => {
+  console.log(good)
   return(
     <div>
     <h1> statistics</h1>
-   <p> No feedback given </p>
     <p>good  {good} </p> 
     <p>neutral  {neutral} </p>
     <p> bad   {bad}</p>
     <p> all {good + neutral + bad}</p>
     <p> average {(good - bad )/ (good + neutral + bad)}</p>
     <p> positive {(good)/ (good + neutral + bad) * 100} %</p>
-    </div> 
+    </div>
+
   )
 }
+
+const Statistics = ({good,neutral,bad}) => {
+  return ( <div>
+<StatisticLine  good = {good} neutral={neutral} bad = {bad}/>
+ </div> )
+}
+const Button1 = ({goodClick,neutralClick,badClick}) => {
+  return (
+    <div> 
+          <button onClick = {goodClick}> good </button>
+          <button onClick = {neutralClick} > neutral </button>
+    <button onClick = {badClick}> bad </button>
+
+         
+    </div>
+  )
+ }  
+ 
+
+
 const App = () => {
   // save clicks of each button to its own state
   const goodClick = () => {
@@ -36,10 +54,9 @@ const App = () => {
   return (
     <div>
     <h1> give feedback</h1>
-    <button onClick = {goodClick}> good </button>
-    <button onClick = {neutralClick} > neutral </button>
-    <button onClick = {badClick}> bad </button>
-   {good || neutral || bad ?  <Statistics good = {good} neutral =  {neutral} bad = {bad}/> :   <p> No feedback given </p>}
+    <Button1 goodClick={goodClick} neutralClick={neutralClick} badClick={badClick} />
+     {good || neutral || bad ?  <Statistics good = {good} neutral =  {neutral} bad = {bad}/> :   <p> No feedback given </p>}
+   
 
     </div>
   )
