@@ -2,9 +2,11 @@ import { useState } from 'react'
 
 
 const Statistics = ({good,neutral,bad}) => {
+
   return(
     <div>
     <h1> statistics</h1>
+   <p> No feedback given </p>
     <p>good  {good} </p> 
     <p>neutral  {neutral} </p>
     <p> bad   {bad}</p>
@@ -30,14 +32,15 @@ const App = () => {
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
 
+  
   return (
     <div>
     <h1> give feedback</h1>
     <button onClick = {goodClick}> good </button>
     <button onClick = {neutralClick} > neutral </button>
     <button onClick = {badClick}> bad </button>
-    <Statistics good = {good} neutral =  {neutral} bad = {bad}/>
-   
+   {good || neutral || bad ?  <Statistics good = {good} neutral =  {neutral} bad = {bad}/> :   <p> No feedback given </p>}
+
     </div>
   )
 }
