@@ -7,15 +7,8 @@ const Course = (props) => {
     // console.log(var1, " name")
     return(
         <div>
-            {/* { props.course.map((x) =><Header name = {x}/> )} */}
-             <Header name = {props.course[0].name}/> 
-            {/* <Header course = {props.course[courses]}/> */}
-            <Content content = {props.course[0].parts}/>
-            <Total total = {props.course[0].parts}/>
-            <Header name = {props.course[1].name}/> 
-            <Content content = {props.course[1].parts}/>
-            <Total total = {props.course[1].parts}/>
-
+            { props.course.map((x) =>
+            <div><Header name = {x}/> <Content parts = {x.parts} /> <Total total = {x.parts}/> </div>)}
 
 
         </div>
