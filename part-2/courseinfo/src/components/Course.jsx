@@ -8,6 +8,7 @@ const Course = (props) => {
         <div>
             <Header course = {props.course.name}/>
             <Content content = {props.course.parts}/>
+            <Total total = {props.course.parts}/>
         </div>
     )
 
