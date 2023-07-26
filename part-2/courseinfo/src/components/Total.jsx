@@ -7,7 +7,7 @@ import React from 'react'
   );
     return(
  <div>
-  <p> Total of {val} exercises</p>
+  <p> <b>Total of {val} exercises</b></p>
  </div>
 
   )
