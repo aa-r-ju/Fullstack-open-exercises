@@ -1,14 +1,13 @@
 import React from 'react'
 
  const Total = ({total}) => {
-  let sum = 0;
-  for(let i = 0; i < total.length; i++ ) {
-    let currentValue = total[i];
-    sum += currentValue.exercises
-  }
-  return(
+  console.log(total)
+  let val = total.reduce(
+    (accumulator, currentValue) => accumulator + currentValue.exercises,0
+  );
+    return(
  <div>
-  <p> Total of {sum} exercises</p>
+  <p> Total of {val} exercises</p>
  </div>
 
   )
