@@ -12,7 +12,7 @@ const App = () => {
     setNewName('');
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event) => { 
     setNewName(event.target.value);
   };
 
