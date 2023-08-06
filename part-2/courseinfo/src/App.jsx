@@ -314,8 +314,12 @@
 
 
 
-
+//2.9 exercise
 import { useState } from 'react';
+import Filter from './components/Filter';
+import PersonForm from './components/PersonForm';
+import Persons from './components/Persons';
+
 
 const App = () => {
   const initialPersons = [
@@ -361,31 +365,21 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <div>
-        filter shown with <input type="text" value={searchTerm} onChange={handleSearchChange} />
-        <h2> add a new </h2>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          name: <input type="text" value={newName} onChange={handleNameChange} />
-        </div>
-        <div>
-          number: <input type="text" value={newNumber} onChange={handleNumberChange} />
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
-      <h2>Numbers</h2>
-      <ul>
-        {filteredPersons.map((person, index) => (
-          <li key={index}>
-            {person.name} {person.number}
-          </li>
-        ))}
-      </ul>
+        <Filter  searchTerm = {searchTerm} handleSearchChange = {handleSearchChange}/>
+        <h3> Add a new </h3>
+        <PersonForm handleSubmit= {handleSubmit} newName= {newName} handleNameChange = {handleNameChange} newNumber = {newNumber} handleNumberChange = {handleNumberChange}/>
+     
+      <h3>Numbers</h3>
+      <Persons filteredPersons = {filteredPersons} />
+
     </div>
   );
 };
 
 export default App;
+
+
+
+
+
+
